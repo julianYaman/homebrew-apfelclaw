@@ -5,6 +5,7 @@ class Apfelclaw < Formula
   sha256 "f5dbd4c9259e380d08b9ca3de26654f99f77c7be53cbab2a531b1f49a91a4573"
   license "MIT"
   head "https://github.com/julianYaman/apfelclaw.git", branch: "main"
+  revision 1
 
   depends_on "node"
   depends_on arch: :arm64
@@ -16,9 +17,14 @@ class Apfelclaw < Formula
   end
 
   def install
-    bin.install "bin/apfelclaw"
     bin.install "bin/apfelclaw-chat"
     libexec.install Dir["libexec/*"]
+
+    (bin/"apfelclaw").write <<~SH
+      #!/bin/bash
+      set -euo pipefail
+      exec node "#{opt_libexec}/cli/apfelclaw.js" "$@"
+    SH
   end
 
   def caveats
