@@ -5,7 +5,7 @@ class Apfelclaw < Formula
   sha256 "f5dbd4c9259e380d08b9ca3de26654f99f77c7be53cbab2a531b1f49a91a4573"
   license "MIT"
   head "https://github.com/julianYaman/apfelclaw.git", branch: "main"
-  revision 1
+  revision 2
 
   depends_on "node"
   depends_on arch: :arm64
@@ -41,6 +41,7 @@ class Apfelclaw < Formula
     run [opt_libexec/"bin/apfelclaw-backend"]
     keep_alive true
     working_dir var
+    environment_variables PATH: "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
     log_path var/"log/apfelclaw.log"
     error_log_path var/"log/apfelclaw.log"
   end
