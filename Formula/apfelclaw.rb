@@ -2,10 +2,11 @@ class Apfelclaw < Formula
   desc "Local-first macOS AI agent with guided onboarding and a separate chat app"
   homepage "https://github.com/julianYaman/apfelclaw"
   url "https://github.com/julianYaman/apfelclaw/releases/download/v0.2.0/apfelclaw-v0.2.0-darwin-arm64.tar.gz"
+  version "0.2.0"
   sha256 "f5dbd4c9259e380d08b9ca3de26654f99f77c7be53cbab2a531b1f49a91a4573"
   license "MIT"
   head "https://github.com/julianYaman/apfelclaw.git", branch: "main"
-  revision 2
+  revision 3
 
   depends_on "node"
   depends_on arch: :arm64
@@ -38,10 +39,13 @@ class Apfelclaw < Formula
   end
 
   service do
-    run [opt_libexec/"bin/apfelclaw-backend"]
+    run [
+      "/usr/bin/env",
+      "PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+      opt_libexec/"bin/apfelclaw-backend",
+    ]
     keep_alive true
     working_dir var
-    environment_variables PATH: "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
     log_path var/"log/apfelclaw.log"
     error_log_path var/"log/apfelclaw.log"
   end
