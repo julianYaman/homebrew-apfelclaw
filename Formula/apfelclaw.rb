@@ -33,6 +33,15 @@ class Apfelclaw < Formula
       Manage the backend service with:
         brew services start apfelclaw
         brew services stop apfelclaw
+
+      apfelclaw talks to the local apfel server on 127.0.0.1:11434 by default.
+      Ollama uses the same port. If that port is already taken, point apfelclaw
+      at a free port in ~/.apfelclaw/config.json, for example:
+
+        "apfelPort": 11436
+
+      then restart the service. Homebrew service logs are at:
+        #{var}/log/apfelclaw.log
     EOS
   end
 
