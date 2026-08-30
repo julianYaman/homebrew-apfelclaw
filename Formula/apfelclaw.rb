@@ -1,9 +1,9 @@
 class Apfelclaw < Formula
   desc "Local-first macOS AI agent with guided onboarding and a separate chat app"
   homepage "https://github.com/julianYaman/apfelclaw"
-  url "https://github.com/julianYaman/apfelclaw/releases/download/v0.2.2/apfelclaw-v0.2.2-darwin-arm64.tar.gz"
-  version "0.2.2"
-  sha256 "165cee200aeb6bf3989c128fbc70ba8e27114656d42e7bff83b57047730282b0"
+  url "https://github.com/julianYaman/apfelclaw/releases/download/v0.2.3/apfelclaw-v0.2.3-darwin-arm64.tar.gz"
+  version "0.2.3"
+  sha256 "b939f22d41beed6fa43576c3541ee3b7808a504cc99aa77895d8c330ed6318a0"
   license "MIT"
   head "https://github.com/julianYaman/apfelclaw.git", branch: "main"
   depends_on "node"
